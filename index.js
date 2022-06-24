@@ -75,19 +75,17 @@ app.delete('/api/notes/:id', (request, response, next) => {
 })
 
 app.put('/api/notes/:id', (request, response, next) => {
-    const body = request.body;
-
-    const note = {
-        content: body.content,
-        important: body.important
-    };
+    const { content, important } = request.body;
 
     // o param opcional {new: true} faz com que o event handler mostre o novo objeto atualizado, não o objeto original que está sendo modificado 
     // o findByIdAndUpdate não faz verificação do schema, logo não aplica as validações no objeto
-    Note.findByIdAndUpdate(request.params.id, note, { new: true })
-        .then( updatedNote => {
-            response.json(updatedNote);
-        }).catch(error => next(error));
+    Note.findByIdAndUpdate(
+        request.params.id, 
+        { content, important }, 
+        { new: true, runValidators: true, context: 'query' }
+    ).then( updatedNote => {
+        response.json(updatedNote);
+    }).catch(error => next(error));
 })
 
 // PESSOA
