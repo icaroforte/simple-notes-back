@@ -90,12 +90,29 @@ app.post('/api/notes', (request, response) => {
         content: body.content,
         subContent: body.subContent,
         id: generateId()
-    }
+    };
 
     notes = notes.concat(note);
 
     console.log(note);
     response.json(note);
+})
+
+app.put('/api/notes/:id', (request, response) => {
+    const id = Number(request.params.id);
+    const body = request.body;
+    const noteToUpdated = notes.find(n => n.id === id);
+    const noteWithNewProperties = {
+        ...noteToUpdated,
+        content: body.content,
+        subContent: body.subContent 
+    };
+
+    notes = notes.map(note => 
+        note.id === id ? noteWithNewProperties : note
+    );
+
+    response.json(noteWithNewProperties);
 })
 
 app.delete('/api/notes/:id', (request, response) => {
