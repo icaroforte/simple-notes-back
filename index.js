@@ -53,17 +53,23 @@ app.post('/api/notes', (request, response) => {
     });
 })
 
-app.put('/api/notes/:id', (request, response) => {
-    Note.findByIdAndUpdate(request.params.id, request.body, { new: true }).then(noteUpdated => {
-        console.log('noteUpdated', noteUpdated);
+app.put('/api/notes/:id', (request, response, next) => {
+    const body = request.body;
+
+    const note = {
+        content: body.content,
+        subContent: body.subContent
+    };
+
+    Note.findByIdAndUpdate(request.params.id, note, { new: true }).then(noteUpdated => {
         response.json(noteUpdated);
-    })
+    }).catch(error => next(error));
 })
 
-app.delete('/api/notes/:id', (request, response) => {
+app.delete('/api/notes/:id', (request, response, next) => {
     Note.findByIdAndDelete(request.params.id).then(note => {
         response.status(204).end();
-    })
+    }).catch(error => next(error));
 })
 
 app.use(unknowEndPoint);
