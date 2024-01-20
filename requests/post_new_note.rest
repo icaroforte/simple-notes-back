@@ -2,6 +2,7 @@ POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-    "content": "VS Code Cliente",
-    "subContent": "Nice!"
+    "content": "Nova nota com user 2",
+    "subContent": "Icaro",
+    "userId": "65abc189c0b3eae5d75052e8"
 }
