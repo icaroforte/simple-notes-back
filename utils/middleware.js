@@ -15,13 +15,15 @@ const unknownEndpoint = (request, response) => {
 const errorHandler = (error, request, response, next) => {
   errorLog(error.message)
 
-  if (error.name === 'CastError') {
-    return response.status(400).send({ error: 'malformatted id' })
-  } else if (error.name === 'ValidationError') {
-    return response.status(400).json({ error: error.message })
-  }
+  const errorName = {
+    'CastError': () => response.status(400).send({ error: 'malformatted id' }),
+    'ValidationError': () => response.status(400).json({ error: error.message }),
+    'JsonWebTokenError': () => response.status(401).json({ error: 'invalid token' }),
+    'TokenExpiredError': () => response.status(401).json({ error: 'token expired' }),
+    'default': () => next(error),
+  };
 
-  next(error)
+  return errorName[error.name || 'default']();
 }
 
 module.exports = {

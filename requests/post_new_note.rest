@@ -1,8 +1,9 @@
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOiI2NWFiYzBkYmMwYjNlYWU1ZDc1MDUyZTEiLCJpYXQiOjE3MDU4NDgyOTl9.MFzUS6JFCv2wNEy4VJtSvFKI4AcGWfwHVKD05OfJlRc
 
 {
-    "content": "Nova nota com user 2",
+    "content": "Nova nota com user 4",
     "subContent": "Icaro",
     "userId": "65abc189c0b3eae5d75052e8"
 }
