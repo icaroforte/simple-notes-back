@@ -9,7 +9,8 @@ const requestLogger = (request, response, next) => {
 }
 
 const unknownEndpoint = (request, response) => {
-  response.status(404).send({ error: 'unknown endpoint' })
+  infoLog('Wrong URL', request.path)
+  response.status(301).redirect('/');
 }
 
 const errorHandler = (error, request, response, next) => {
