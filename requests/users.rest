@@ -1,3 +1,6 @@
+### GET
+GET http://localhost:3001/api/users/
+
 ### POST
 POST http://localhost:3001/api/users/
 Content-Type: application/json
@@ -5,9 +8,16 @@ Content-Type: application/json
 {
     "username": "admin",
     "name": "Admin",
-    "password": "admin"
+    "password": "admin",
+    "roles": ["admin"]
 }
 
-### GET
+### PUT
+PUT http://localhost:3001/api/users/65c6677ce9f6a60cb5428a0d9
+Content-Type: application/json
 
-GET http://localhost:3001/api/users/
+{
+    "name": "User01",
+    "password": "user",
+    "roles": ["admin"]
+}
