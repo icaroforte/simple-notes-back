@@ -1,0 +1,53 @@
+GET http://localhost:3001/api/customers
+
+###
+
+GET http://localhost:3001/api/customers/65ccce774185b1068d15db02
+
+###
+
+POST http://localhost:3001/api/customers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImljYXJvZm9ydGUiLCJpZCI6IjY1YWJjMTg5YzBiM2VhZTVkNzUwNTJlOCIsInJvbGVzIjpbIkFETUlOIl0sImlhdCI6MTcwNzk0ODY2MSwiZXhwIjoxNzA3OTUyMjYxfQ.WEcq6qs08sH8TOckmxkPwEAfe1ZGtHv5Xcz32upImKc
+
+{
+    "name": "Ícaro Forte",
+    "address": {
+        "street": "Anacleto Eloy",
+        "number": "324",
+        "neighborhood": "Quarenta",
+        "city": "Campina Grande",
+        "state": "Paraíba",
+        "country": "Brasil",
+        "zipCode": "58416090",
+        "reference": "Próximo ao Grand Chateur"
+    },
+    "cpfCnpj": "01731360522",
+    "phone": "8398899123",
+    "email": "email@gmail.com"
+}
+
+### PUT
+PUT http://localhost:3001/api/customers/65cd249655e334845f403c13
+Content-Type: application/json
+
+{
+    "name": "Ícaro Forte",
+    "address": {
+        "street": "Anacleto Eloy",
+        "number": "324",
+        "neighborhood": "Quarenta",
+        "city": "Campina Grande",
+        "state": "Paraíba",
+        "country": "Brasil",
+        "zipCode": "58416090",
+        "reference": "Próximo ao Grand Chateur"
+    },
+    "cpfCnpj": "01731360522",
+    "phone": "8398899123",
+    "email": "email@gmail.com"
+}
+
+### DELETE
+
+DELETE http://localhost:3001/api/customers/65cd2b957fa43a18455552f2
