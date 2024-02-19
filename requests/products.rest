@@ -1,0 +1,29 @@
+GET http://localhost:3001/api/products
+
+###
+
+GET http://localhost:3001/api/products/65d3a89b5b09570401352e28
+
+###
+
+POST http://localhost:3001/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImljYXJvZm9ydGUiLCJpZCI6IjY1YWJjMTg5YzBiM2VhZTVkNzUwNTJlOCIsInJvbGVzIjpbIkFETUlOIl0sImlhdCI6MTcwODM2OTY3NSwiZXhwIjoxNzA4MzczMjc1fQ.eso7vQ6zZQY1RBgRmXWLpGVyAANTE7yqev1XJZitTjo
+
+{
+    "name": "Polo",
+    "price": 35
+}
+
+###
+PUT http://localhost:3001/api/products/65d3a89b5b09570401352e28
+Content-Type: application/json
+
+{
+    "name": "Faixa",
+    "price": 75
+}
+
+### DELETE
+
+DELETE http://localhost:3001/api/products/65d3a8925b09570401352e26
