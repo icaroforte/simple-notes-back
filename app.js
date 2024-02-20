@@ -8,6 +8,7 @@ const usersRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
 const customersRouter = require('./controllers/customers');
 const productsRouter = require('./controllers/products');
+const ordersRouter = require('./controllers/orders');
 const middleware = require('./utils/middleware');
 const { infoLog, errorLog } = require('./utils/logger');
 const mongoose = require('mongoose');
@@ -34,6 +35,7 @@ app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/customers', customersRouter);
 app.use('/api/products', productsRouter);
+app.use('/api/orders', ordersRouter);
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
