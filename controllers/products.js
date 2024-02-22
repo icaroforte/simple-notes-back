@@ -43,7 +43,8 @@ productsRouter.post('/', async (request, response) => {
 
     const product = new Product({
         name: body.name,
-        price: body.price
+        price: body.price,
+        description: body.description
     });
 
     const savedProduct = await product.save();
@@ -56,7 +57,8 @@ productsRouter.put('/:id', async (request, response) => {
 
     const product = {
         name: body.name,
-        price: body.price
+        price: body.price,
+        description: body.description
     };
 
     await Product.findByIdAndUpdate(request.params.id, product, { new: true }).then(productUpdated => {

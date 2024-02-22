@@ -10,6 +10,9 @@ const productSchema = new mongoose.Schema({
         required: true,
         min: 0
     },
+    description: {
+        type: String,
+    }
 });
 
 productSchema.set('toJSON', {
